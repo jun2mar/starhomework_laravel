@@ -8,7 +8,7 @@
         <homeworklist-component
             props-route-new="{{ route('account_homework_new') }}"
             props-route-billing="{{ route('account_homework_billing') }}"
-            props-route-order-view="{{ route('account_homework_order_view') }}"
+            props-route-order-view="{{ route('account_order_view') }}"
         >
         </homeworklist-component>
     </div>

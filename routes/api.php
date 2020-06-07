@@ -28,6 +28,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('get_unpaid_homework_info', 'API\HomeworkController@get_unpaid_homework_info');
     Route::post('save_order_info', 'API\HomeworkController@save_order_info');
 
+    // ORDER VIEW
+    Route::post('get_order_main', 'API\OrderViewController@get_order_main');
+    Route::post('get_order_messages', 'API\OrderViewController@get_order_messages');
+    Route::post('send_order_message', 'API\OrderViewController@send_order_message');
+    
     Route::post('get_order_timer', 'API\HomeworkOrderView@get_order_timer');
 
 });

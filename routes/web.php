@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
@@ -29,9 +29,10 @@ Route::group(['middleware' => 'auth'], function () {
         return view('pages.account.homework-billing')->with('request', $request);
     })->name('account_homework_billing');
 
-    Route::get('/account/homework-order-view/{order_id?}', function ($request = null) {
-        return view('pages.account.homework-order-view')->with('request', $request);
-    })->name('account_homework_order_view');
+    Route::get('/account/order-view/{order_id?}', function ($request = null) {
+        return view('pages.account.order-view')->with('request', $request);
+    })->name('account_order_view');
+    // Route::get('/account/order-view/{order_id?}', 'HomeController@order_view')->name('account_order_view');
 
 
     // Route::get('/account/homework-billing/{homework_id?}', 'ProfileController@profile_save')->name('account_homework_billing');
@@ -39,3 +40,11 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::post('/account/profile/save', 'API/HomeworkController@profile_save')->name('account_profile_save');
 });
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+});
+
+Route::get('/chats', 'ChatsController@index');
+Route::get('/messages', 'ChatsController@fetchMessages');
+Route::post('/messages', 'ChatsController@sendMessage');

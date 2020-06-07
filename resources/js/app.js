@@ -55,6 +55,12 @@ import VueCountdownTimer from 'vuejs-countdown-timer';
 Vue.use(VueCountdownTimer);
 // Vue.component('vue-countdown-timer', VueCountdownTimer);
 
+import {Tabs, Tab} from 'vue-tabs-component';
+Vue.component('tabs', Tabs);
+Vue.component('tab', Tab);
+
+import VueChatScroll from 'vue-chat-scroll';
+Vue.use(VueChatScroll);
 
 window.glob_error = "There is a problem with your request";
 
@@ -91,8 +97,14 @@ Vue.component('homework-template-component', require('./components/account/Homew
 // Vue.component('homework-order-view-component', require('./components/account/HomeworkOrderView.vue').default);
 
 // ORDER VIEW COMPONENTS
-Vue.component('homework-order-view-timer-component', require('./components/account/HomeworkOrderView/OrderTimer.vue').default);
-Vue.component('homework-order-view-chat-component', require('./components/account/HomeworkOrderView/OrderChat.vue').default);
+Vue.component('order-view-main-component', require('./components/account/OrderView/OrderMain.vue').default);
+Vue.component('order-view-timer-component', require('./components/account/OrderView/OrderTimer.vue').default);
+Vue.component('order-view-chat-component', require('./components/account/OrderView/OrderChat.vue').default);
+
+
+Vue.component('chat-component', require('./components/ChatComponent.vue').default);
+
+
 
 
 

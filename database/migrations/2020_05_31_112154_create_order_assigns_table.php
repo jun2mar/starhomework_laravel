@@ -15,6 +15,9 @@ class CreateOrderAssignsTable extends Migration
     {
         Schema::create('order_assigns', function (Blueprint $table) {
             $table->id();
+            $table->integer('fk_orders_id');
+            $table->integer('fk_users_id')->comment('Student/Teacher');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }
